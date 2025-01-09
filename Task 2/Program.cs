@@ -28,12 +28,11 @@ namespace Task_2 {
         }
 
         // asks the user to fill an array with integers
-        private static int[] InputArray(int[] nums) {
+        private static void InputArray(int[] nums) {
             for (int i = 0; i < nums.Length; i++) {
                 Console.Write($"Please input number {i + 1}: ");
                 if (!int.TryParse(Console.ReadLine(), out nums[i])) i--;
             }
-            return nums;
         }
     }
 }

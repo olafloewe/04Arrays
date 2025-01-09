@@ -25,12 +25,17 @@ namespace Task_3 {
         }
 
         // asks the user to fill an array with integers
-        private static string[] InputArray(string[] freq) {
-            for (int i = 0; i < freq.Length; i++) {
+        private static void InputArray(string[] freq) {
+            int amt = 0;
+            do {
+                Console.Write("How many numbers do you want to enter: ");
+            } while (!int.TryParse(Console.ReadLine(), out amt));
+
+            for (int i = 0; i < amt; i++) {
+
                 Console.Write($"Please input number {i + 1}: ");
-                if (!int.TryParse(Console.ReadLine(), out freq[i])) i--;
+                if (!int.TryParse(Console.ReadLine(), out int err)) i--;
             }
-            return freq;
         }
     }
 }
