@@ -1,5 +1,4 @@
 ﻿using System;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace Task_5 {
     internal class Program {
@@ -13,8 +12,8 @@ namespace Task_5 {
 
             // computing
             GenerateArray(numbers);
-            PrintArray(numbers);
             SieveOfEra(numbers);
+            Console.WriteLine($"Prime numbers from 2 - {length}");
             PrintArray(numbers);
         }
 
@@ -25,31 +24,23 @@ namespace Task_5 {
             }
         }
 
-        // prints the passed array if value not = -1 
+        // prints the passed array if value not = 0
         private static void PrintArray(int[] nums) {
-            for (int i = 0; i < nums.Length; i++) {
-                // if (nums[i] != 0) 
-                    Console.Write($"{nums[i]} ");
+            for (int i = 2; i < nums.Length; i++) {
+                if (nums[i] != 0) Console.Write($"{nums[i]} ");
             }
         }
 
-        // marks non prime numbers with 0
+        // replaces non prime numbers with 0
         private static void SieveOfEra(int[] nums) {
-            for (int p = 2; (p < nums.Length) && (p != 0); NextP(nums, p)) {
+            // increment p to the next non marked larger number
+            for (int p = 2; p < nums.Length; p++) {
+                if (nums[p] == 0) continue;
                 // purge non primes
-                for (int i = 1; (i * p) < nums.Length; i++) {
-                    nums[i * p] = 0;
+                for (int i = 2; (i * p) < nums.Length; i++) {
+                    nums[(i * p)] = 0;
                 }
             }
-        }
-        
-        //finds next P
-        private static int NextP(int[] nums, int p) {
-            int smallest = p;
-            for (int i = nums.Length-1; i > p; i--) { 
-                if(nums[i] < smallest && nums[i] != 0) smallest = i;
-            }
-            return smallest;
         }
     }
 }
