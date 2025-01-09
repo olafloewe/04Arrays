@@ -13,12 +13,12 @@ namespace Task_2 {
             ReversePrintArray(numbers);
         }
 
-        // prints the array and the average of the numbers
+        // prints the array and the average its numbers
         private static void ReversePrintArray(int[] nums) {
             float total = 0.0f;
             Console.Write("The average of numbers ");
             
-            // loop through array printing every index and adding it to the total
+            // loop through the array printing every index and adding it to the total
             for (int i = 0; i < nums.Length; i++) {
                 total += nums[i];
                 Console.Write($"{nums[i]} ");
@@ -27,7 +27,7 @@ namespace Task_2 {
             Console.WriteLine($"is {total / nums.Length}");
         }
 
-        // asks the user to fill an array of fixed length with integers
+        // asks the user to fill an array with integers
         private static int[] InputArray(int[] nums) {
             for (int i = 0; i < nums.Length; i++) {
                 Console.Write($"Please input number {i + 1}: ");
