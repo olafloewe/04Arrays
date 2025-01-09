@@ -12,29 +12,33 @@ namespace Task_3 {
 
         // prints the array
         private static void PrintArray(string[] freq) {
-            float total = 0.0f;
-            Console.Write("The average of numbers ");
-
-            // loop through the array printing every index and adding it to the total
             for (int i = 0; i < freq.Length; i++) {
-                total += freq[i];
-                Console.Write($"{freq[i]} ");
+                Console.WriteLine($"{i+1}: {freq[i]}");
             }
-
-            Console.WriteLine($"is {total / freq.Length}");
         }
 
-        // asks the user to fill an array with integers
+        // asks the user to input integers between 1 and 5
         private static void InputArray(string[] freq) {
             int amt = 0;
             do {
                 Console.Write("How many numbers do you want to enter: ");
             } while (!int.TryParse(Console.ReadLine(), out amt));
 
+            int input;
             for (int i = 0; i < amt; i++) {
 
-                Console.Write($"Please input number {i + 1}: ");
-                if (!int.TryParse(Console.ReadLine(), out int err)) i--;
+                // input wrong type
+                do{
+                    Console.Write($"Please input number {i + 1}: ");
+                } while (!int.TryParse(Console.ReadLine(), out input));
+
+                // input out of range
+                if (input > 5 || input < 1) {
+                    i--;
+                    continue;
+                }
+
+                freq[input - 1] = $"{freq[input - 1]}*"; 
             }
         }
     }
