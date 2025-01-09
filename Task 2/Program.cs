@@ -10,11 +10,11 @@ namespace Task_2 {
             }while(!int.TryParse(Console.ReadLine(), out length));
             int[] numbers = new int[length];
             InputArray(numbers);
-            ReversePrintArray(numbers);
+            PrintArray(numbers);
         }
 
         // prints the array and the average its numbers
-        private static void ReversePrintArray(int[] nums) {
+        private static void PrintArray(int[] nums) {
             float total = 0.0f;
             Console.Write("The average of numbers ");
             
